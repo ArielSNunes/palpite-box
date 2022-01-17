@@ -1,0 +1,9 @@
+.wrapper {
+	@apply bg-slate-200;
+	@apply p-4;
+}
+
+.headerContainer {
+	@apply container;
+	@apply mx-auto;
+}
