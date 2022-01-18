@@ -8,22 +8,26 @@ const Header = () => {
 		<Fragment>
 			<div className={styles.wrapper}>
 				<div className={styles.headerContainer}>
-					<Image
-						src="/img/logo_paplpitebox.png"
-						alt="Palpitebox logo"
-						width={144}
-						height={120}
-					/>
+					<Link href='/'>
+						<a>
+							<Image
+								src="/img/logo_paplpitebox.png"
+								alt="Palpitebox logo"
+								width={144}
+								height={120}
+							/>
+						</a>
+					</Link>
 				</div>
 			</div>
 			<div className={styles.submenuWrapper}>
-				<Link href='sobre'>
+				<Link href='/sobre'>
 					<a className={styles.link}>Sobre</a>
 				</Link>
-				<Link href='contato'>
+				<Link href='/contato'>
 					<a className={styles.link}>Contato</a>
 				</Link>
-				<Link href='pesquisa'>
+				<Link href='/pesquisa'>
 					<a className={styles.link}>Pesquisa</a>
 				</Link>
 			</div>
