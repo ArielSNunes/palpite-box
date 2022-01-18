@@ -1,0 +1,22 @@
+.wrapper {
+	@apply bg-slate-600;
+	@apply p-4;
+	@apply text-center;
+	@apply font-medium;
+	@apply text-white;
+}
+.me {
+	@apply text-green-500;
+}
+.github {
+	@apply text-gray-300;
+	@apply ml-1;
+	@apply hover:underline;
+}
+.logos {
+	@apply flex;
+	@apply justify-center;
+	@apply items-center;
+	@apply mt-6;
+	@apply gap-10;
+}

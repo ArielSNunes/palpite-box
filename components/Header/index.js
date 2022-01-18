@@ -1,13 +1,33 @@
-import React from "react"
+import Image from "next/image"
+import Link from "next/link"
+import React, { Fragment } from "react"
 import styles from './styles.module.css'
 
 const Header = () => {
 	return (
-		<div className={styles.wrapper}>
-			<div className={styles.headerContainer}>
-				PalpiteBox
+		<Fragment>
+			<div className={styles.wrapper}>
+				<div className={styles.headerContainer}>
+					<Image
+						src="/img/logo_paplpitebox.png"
+						alt="Palpitebox logo"
+						width={144}
+						height={120}
+					/>
+				</div>
 			</div>
-		</div>
+			<div className={styles.submenuWrapper}>
+				<Link href='sobre'>
+					<a className={styles.link}>Sobre</a>
+				</Link>
+				<Link href='contato'>
+					<a className={styles.link}>Contato</a>
+				</Link>
+				<Link href='pesquisa'>
+					<a className={styles.link}>Pesquisa</a>
+				</Link>
+			</div>
+		</Fragment>
 	)
 }
 

@@ -1,9 +1,24 @@
 .wrapper {
 	@apply bg-slate-200;
 	@apply p-4;
+	@apply shadow-md;
+	@apply z-50;
+}
+
+.submenuWrapper {
+	@apply wrapper;
+	@apply bg-slate-300;
+	@apply z-0;
+	@apply text-center;
 }
 
 .headerContainer {
 	@apply container;
 	@apply mx-auto;
+	@apply text-center;
+}
+
+.link {
+	@apply px-2;
+	@apply hover:underline;
 }
