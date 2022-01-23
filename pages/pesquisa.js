@@ -2,6 +2,25 @@ import React from 'react'
 import Link from 'next/link'
 
 const Pesquisa = () => {
+	const save = async () => {
+		try {
+			const form = {
+				Nome: '',
+				'E-mail': '',
+				Whatsapp: ''
+			}
+			const response = await fetch('/api/save', {
+				method: 'POST',
+				body: JSON.stringify(form)
+			})
+
+			const data = await response.json()
+
+			console.log(data)
+		} catch (error) {
+			console.warn(error)
+		}
+	}
 	return (
 		<div className='pt-6'>
 			<h1 className='my-4 text-center font-bold text-2xl'>Criticas e sugestões</h1>
@@ -27,7 +46,11 @@ const Pesquisa = () => {
 					<label htmlFor="">Sua critica ou sugestão:</label>
 					<input type="text" className='p-4 block shadow bg-blue-100 my-2 rounded-md w-[100%]' />
 				</div>
-				
+				<div className='flex items-start flex-col w-80'>
+					<button onClick={save} className='block w-[100%] bg-blue-400 px-6 py-4 mt-4 font-bold rounded-lg shadow-lg hover:text-gray-100 border-blue-400 hover:bg-blue-500 hover:border-blue-600 border-2 duration-150 transition-all hover:shadow'>
+						Salvar
+					</button>
+				</div>
 			</div>
 		</div>
 	)
