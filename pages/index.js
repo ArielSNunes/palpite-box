@@ -31,7 +31,7 @@ const Index = () => {
 				)
 			}
 			{
-				!error && data && data.showCoupon && (
+				!error && !isValidating && data && data.showCoupon && (
 					<p className='my-12 text-center'>
 						{data.message}
 					</p>
