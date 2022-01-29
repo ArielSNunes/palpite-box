@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 
 const Pesquisa = () => {
+	const [form, setForm] = useState({
+		Nome: '',
+		'E-mail': '',
+		Whatsapp: ''
+	})
 	const save = async () => {
 		try {
-			const form = {
-				Nome: '',
-				'E-mail': '',
-				Whatsapp: ''
-			}
 			const response = await fetch('/api/save', {
 				method: 'POST',
 				body: JSON.stringify(form)
@@ -21,6 +21,14 @@ const Pesquisa = () => {
 			console.warn(error)
 		}
 	}
+
+	const onChange = e => {
+		const { value, name } = e.target
+		setForm(old => ({
+			...old,
+			[name]: value
+		}))
+	}
 	return (
 		<div className='pt-6'>
 			<h1 className='my-4 text-center font-bold text-2xl'>Criticas e sugestões</h1>
@@ -32,15 +40,33 @@ const Pesquisa = () => {
 			<div className='flex items-center justify-start flex-col mb-6 mt-3'>
 				<div className='flex items-start flex-col w-80'>
 					<label htmlFor="">Seu nome:</label>
-					<input type="text" className='p-4 block shadow bg-blue-100 my-2 rounded-md w-[100%]' />
+					<input
+						type="text"
+						className='p-4 block shadow bg-blue-100 my-2 rounded-md w-[100%]'
+						placeholder='Nome'
+						name='Nome'
+						onChange={onChange}
+						value={form.Nome} />
 				</div>
 				<div className='flex items-start flex-col w-80'>
 					<label htmlFor="">E-mail:</label>
-					<input type="text" className='p-4 block shadow bg-blue-100 my-2 rounded-md w-[100%]' />
+					<input
+						type="text"
+						className='p-4 block shadow bg-blue-100 my-2 rounded-md w-[100%]'
+						placeholder='E-mail'
+						name='E-mail'
+						onChange={onChange}
+						value={form['E-mail']} />
 				</div>
 				<div className='flex items-start flex-col w-80'>
-					<label htmlFor="">WhatsApp:</label>
-					<input type="text" className='p-4 block shadow bg-blue-100 my-2 rounded-md w-[100%]' />
+					<label htmlFor="">Whatsapp:</label>
+					<input
+						type="text"
+						className='p-4 block shadow bg-blue-100 my-2 rounded-md w-[100%]'
+						placeholder='Whatsapp'
+						name='Whatsapp'
+						onChange={onChange}
+						value={form.Whatsapp} />
 				</div>
 				<div className='flex items-start flex-col w-80'>
 					<label htmlFor="">Sua critica ou sugestão:</label>

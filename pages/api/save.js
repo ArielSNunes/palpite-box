@@ -18,7 +18,7 @@ export default async (req, res) => {
 	const body = JSON.parse(req.body)
 
 	const formData = {
-		Nome: body.nome,
+		Nome: body.Nome,
 		'E-mail': body['E-mail'],
 		Whatsapp: body.Whatsapp,
 		Cupom: '',
