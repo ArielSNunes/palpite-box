@@ -2,6 +2,7 @@ import { GoogleSpreadsheet } from 'google-spreadsheet'
 import moment from 'moment'
 
 import credentials from '../../credentials.json'
+import Coupon from '../../helpers/Coupon'
 
 const sheetId = '1v9y1toMozR63PaiV01zl7F9xm8ae7su0Koi7PF9fbLU'
 
@@ -37,12 +38,13 @@ export default async (req, res) => {
 		const mostarPromo = (configSheet.getCell(2, 0)).value
 		const texto = (configSheet.getCell(2, 1)).value
 
+		const cupom = new Coupon()
+
 		if (mostarPromo === 'VERDADEIRO') {
 			formData.Promo = texto
-			formData.Cupom = 'teste'
+			formData.Cupom = cupom.gerar()
 		}
 
-		console.log(formData)
 		await sheet.addRow(formData)
 
 		return res.json(body)
