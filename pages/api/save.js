@@ -24,7 +24,7 @@ export default async (req, res) => {
 		Cupom: '',
 		Promo: '',
 		'Data Preenchimento': moment().format('DD/MM/YYYY HH:mm:ss'),
-		Nota: 5
+		Nota: parseInt(body.Nota)
 	}
 	try {
 		await doc.useServiceAccountAuth(credentials)
@@ -47,7 +47,11 @@ export default async (req, res) => {
 
 		await sheet.addRow(formData)
 
-		return res.json(body)
+		return res.json({
+			showCoupon: formData.Cupom !== '',
+			coupon: formData.Cupom,
+			promo: formData.Promo
+		})
 	} catch (error) {
 		return res.end(error)
 	}
