@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Link from 'next/link'
+import PageTitle from '../components/PageTitle'
 
 const Pesquisa = () => {
 	const [success, setSuccess] = useState(false)
@@ -36,6 +36,7 @@ const Pesquisa = () => {
 	}
 	return (
 		<div className='pt-6'>
+			<PageTitle title="Pesquisa"/>
 			<h1 className='my-4 text-center font-bold text-2xl'>Criticas e sugestões</h1>
 			<p className='my-6 text-center'>
 				O restaurante X sempre busca por atender melhor seus clientes.
@@ -85,7 +86,7 @@ const Pesquisa = () => {
 							{notas.map(nota => (
 								<label htmlFor={`nota${nota}`}>
 									<span className='block text-center'>{nota}</span>
-									<input type="radio" name='Nota' id={`nota${nota}`} value={nota} onChange={onChange}/>
+									<input type="radio" name='Nota' id={`nota${nota}`} value={nota} onChange={onChange} />
 								</label>
 							))}
 						</div>
